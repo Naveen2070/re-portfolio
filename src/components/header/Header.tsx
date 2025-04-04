@@ -1,30 +1,18 @@
 import React from "react";
-import Aurora from "../animations/Aurora";
+import "./Header.css";
+import ShinyText from "../animations/shiny_text/ShinyText";
+import GooeyNav, { GooeyNavItem } from "../animations/grooey_nav/GooeyNav";
 
 export const Header = () => {
+  const items: GooeyNavItem[] = [
+    { label: "Home", href: "#" },
+    { label: "About", href: "#" },
+    { label: "Contact", href: "#" },
+  ];
   return (
     <header className="header">
-      <Aurora
-        colorStops={["#00D8FF", "#76FF67", "#00D8FF"]}
-        blend={0.5}
-        amplitude={1.0}
-        speed={0.6}
-      >
-        <div
-          className="absolute z-10 bg-transparent"
-          style={{
-            // mixBlendMode: "soft-light",
-            backgroundColor: "rgba(75, 75, 75, 0.29)",
-            borderBottom: "1px inset rgba(0, 0, 0, 0.74)",
-            color: "#dfdfd6",
-            width: "100%",
-            height: "60px",
-            padding: "1rem",
-          }}
-        >
-          <h1 className="text-2xl">head</h1>
-        </div>
-      </Aurora>
+      <ShinyText text="NAVEEN R" speed={5} className="text-3xl" />
+      <GooeyNav items={items} animationTime={600} />
     </header>
   );
 };

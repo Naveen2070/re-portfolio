@@ -5,6 +5,7 @@ function App() {
   return (
     <>
       <Header />
+      <div className="w-full h-full">a</div>
     </>
   );
 }
