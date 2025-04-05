@@ -5,14 +5,13 @@ import GooeyNav, { GooeyNavItem } from "../animations/grooey_nav/GooeyNav";
 
 export const Header = () => {
   const items: GooeyNavItem[] = [
-    { label: "Home", href: "#home" },
+    { label: "Home", href: "#" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];
 
-  const currentIndex = items.findIndex(
-    (item) => item.href === window.location.hash
-  );
+  const Index = items.findIndex((item) => item.href === window.location.hash);
+  const currentIndex = Index === -1 ? 0 : Index;
 
   return (
     <header className="header">

@@ -2,6 +2,7 @@ import React from "react";
 import Squares from "../animations/squares_bg/SquaresBackground";
 import BlurText from "../animations/text_effects/blur_text/BlurText";
 import RotatingText from "../animations/text_effects/rotating_text/RotatingText";
+import DecryptedText from "../animations/text_effects/decrypt_text/DecryptText";
 
 export const IntroContainer = () => {
   const [namingComplete, setNamingComplete] = React.useState(false);
@@ -34,7 +35,7 @@ export const IntroContainer = () => {
         <div
           className={`w-full flex flex-col items-center justify-center transition-all duration-700 ease-in-out ${
             namingComplete
-              ? "translate-y-[-210%] text-8xl"
+              ? "translate-y-[-100%] text-8xl"
               : "translate-y-0 text-6xl"
           }`}
         >
@@ -52,7 +53,7 @@ export const IntroContainer = () => {
         <div
           className={`w-full flex items-center justify-center transition-all duration-700 ease-in-out transform ${
             namingComplete
-              ? "scale-100 opacity-100 translate-y-[-350%]"
+              ? "scale-100 opacity-100 translate-y-[-100%]"
               : "scale-75 opacity-0 translate-y-10"
           }`}
         >
@@ -92,6 +93,17 @@ export const IntroContainer = () => {
             rotationInterval={3000}
           />
         </div>
+        {rotatingComplete && (
+          <div className="w-[80%]">
+            <DecryptedText
+              className="text-[20px] mt-4 sm:mt-6 md:mt-8"
+              text="Welcome to my portfolio! As a passionate and dedicated professional, I thrive on solving challenges and creating impactful solutions in the digital realm. Whether it's developing sleek web applications, designing intuitive interfaces, or experimenting with creative animations, I love merging technology and innovation to bring ideas to life."
+              speed={150}
+              maxIterations={20}
+              animateOn="view"
+            />
+          </div>
+        )}
       </div>
     </section>
   );
