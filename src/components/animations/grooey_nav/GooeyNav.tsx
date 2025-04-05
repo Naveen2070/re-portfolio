@@ -304,14 +304,14 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
           }
         `}
       </style>
-      <div className="relative" ref={containerRef}>
+      <div className="relative mr-13" ref={containerRef}>
         <nav
           className="flex relative"
           style={{ transform: "translate3d(0,0,0.01px)" }}
         >
           <ul
             ref={navRef}
-            className="flex gap-8 list-none p-0 px-4 m-0 relative z-[3]"
+            className="flex gap-2 list-none p-0 px-4 m-0 relative z-[3]"
             style={{
               color: "white",
               textShadow: "0 1px 1px hsl(205deg 30% 10% / 0.2)",
@@ -320,7 +320,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             {items.map((item, index) => (
               <li
                 key={index}
-                className={`py-[0.6em] px-[1em] rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
+                className={`py-[0.6em] px-[0.5em] rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
                   activeIndex === index ? "active" : ""
                 }`}
                 onClick={(e) => handleClick(e, index)}
@@ -328,7 +328,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
                 <a
                   href={item.href}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="outline-none"
+                  className="outline-none select-none"
                 >
                   {item.label}
                 </a>
@@ -336,8 +336,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             ))}
           </ul>
         </nav>
-        <span className="effect filter" ref={filterRef} />
-        <span className="effect text" ref={textRef} />
+        <span className="effect filter select-none" ref={filterRef} />
+        <span className="effect text select-none" ref={textRef} />
       </div>
     </>
   );

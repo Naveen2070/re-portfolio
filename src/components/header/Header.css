@@ -5,7 +5,36 @@
   color: #dfdfd6;
   width: 100%;
   height: 60px;
-  padding: 1rem;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
+
+  /* Initial box-shadow */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+
+  /* Animating the glow effect */
+  animation: glowing 3s ease-in-out infinite;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Hover glow effect (intensify the glow when hovered) */
+.header:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 0.8),
+    0 0 75px rgba(255, 255, 255, 0.6);
+  animation: none; /* Disable the animation during hover */
 }
