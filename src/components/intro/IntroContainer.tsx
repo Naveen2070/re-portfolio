@@ -57,7 +57,7 @@ export const IntroContainer = () => {
               : "scale-75 opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-4xl font-bold mr-4">So what am I?</p>
+          <p className="text-4xl font-bold mr-4 text-cyan-600">So what am I?</p>
           <RotatingText
             texts={[
               "A Developer",
@@ -93,8 +93,14 @@ export const IntroContainer = () => {
             rotationInterval={3000}
           />
         </div>
-        {rotatingComplete && (
-          <div className="w-[80%]">
+        <div
+          className={`w-[80%] flex items-center justify-center transition-all duration-700 ease-in-out delay-300 transform ${
+            rotatingComplete
+              ? "scale-100 opacity-100 translate-y-0"
+              : "scale-75 opacity-0 translate-y-10 pointer-events-none"
+          }`}
+        >
+          {rotatingComplete && (
             <DecryptedText
               className="text-[20px] mt-4 sm:mt-6 md:mt-8"
               text="Welcome to my portfolio! As a passionate and dedicated professional, I thrive on solving challenges and creating impactful solutions in the digital realm. Whether it's developing sleek web applications, designing intuitive interfaces, or experimenting with creative animations, I love merging technology and innovation to bring ideas to life."
@@ -102,8 +108,8 @@ export const IntroContainer = () => {
               maxIterations={20}
               animateOn="view"
             />
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </section>
   );
