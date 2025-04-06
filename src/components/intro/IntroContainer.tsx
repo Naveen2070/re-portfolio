@@ -3,6 +3,8 @@ import Squares from "../animations/squares_bg/SquaresBackground";
 import BlurText from "../animations/text_effects/blur_text/BlurText";
 import RotatingText from "../animations/text_effects/rotating_text/RotatingText";
 import DecryptedText from "../animations/text_effects/decrypt_text/DecryptText";
+import GradientText from "../animations/text_effects/gradient_text/GradientText";
+import StarButton from "../animations/star_button/StarButton";
 
 export const IntroContainer = () => {
   const [namingComplete, setNamingComplete] = React.useState(false);
@@ -17,6 +19,18 @@ export const IntroContainer = () => {
   const handleRotatingComplete = () => {
     if (!rotatingComplete) setRotatingComplete(true);
     return;
+  };
+
+  //handle projects click
+  const handleResumeClick = () => {
+    console.log("resume");
+  };
+
+  //handle contact click
+  const handleContactClick = () => {
+    const contactSection = document.getElementById("contact");
+    contactSection?.scrollIntoView({ behavior: "smooth" });
+    window.location.hash = "#contact";
   };
 
   return (
@@ -109,6 +123,31 @@ export const IntroContainer = () => {
               animateOn="view"
             />
           )}
+        </div>
+        <div className="w-[70%] flex items-center mt-8">
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={true}
+            className="h-[50px] p-5"
+          >
+            <button
+              className="w-full h-full  text-2xl uppercase cursor-pointer"
+              onClick={handleResumeClick}
+            >
+              Resume
+            </button>
+          </GradientText>
+          <div className="w-4"></div>
+          <StarButton
+            as="button"
+            className="text-2xl uppercase text-cyan-300 cursor-pointer"
+            color="cyan"
+            speed="2s"
+            onClick={handleContactClick}
+          >
+            Contact Me
+          </StarButton>
         </div>
       </div>
     </section>
