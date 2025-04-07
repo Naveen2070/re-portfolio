@@ -1,9 +1,12 @@
 .star-border-container {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   padding: 1px 0;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
+  transition: box-shadow 0.3s ease;
 }
 
 .border-gradient-bottom {
@@ -34,7 +37,6 @@
   position: relative;
   background: linear-gradient(to bottom, #060606, #111);
   border: 1px solid #222;
-  font-size: 16px;
   text-align: center;
   padding: 16px 26px;
   border-radius: 20px;

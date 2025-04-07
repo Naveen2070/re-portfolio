@@ -7,6 +7,7 @@ export const Header = () => {
   const items: GooeyNavItem[] = [
     { label: "Home", href: "#" },
     { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -15,7 +16,6 @@ export const Header = () => {
 
   return (
     <header className="header">
-      <ShinyText text="NAVEEN R" speed={2} className="text-3xl select-none" />
       <GooeyNav
         items={items}
         particleCount={10}
@@ -24,6 +24,11 @@ export const Header = () => {
         animationTime={600}
         colors={[1, 2, 3, 1, 2, 3, 1, 4]}
         initialActiveIndex={currentIndex}
+      />
+      <ShinyText
+        text="NAVEEN R"
+        speed={2}
+        className="text-1xl sm:text-2xl md:text-3xl lg:text-4xl select-none flex items-center justify-center"
       />
     </header>
   );

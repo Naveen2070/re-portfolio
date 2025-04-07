@@ -3,8 +3,7 @@ import Squares from "../animations/squares_bg/SquaresBackground";
 import BlurText from "../animations/text_effects/blur_text/BlurText";
 import RotatingText from "../animations/text_effects/rotating_text/RotatingText";
 import DecryptedText from "../animations/text_effects/decrypt_text/DecryptText";
-import GradientText from "../animations/text_effects/gradient_text/GradientText";
-import StarButton from "../animations/star_button/StarButton";
+import StarComponent from "../animations/star_componenet/StarComponent";
 
 export const IntroContainer = () => {
   const [namingComplete, setNamingComplete] = React.useState(false);
@@ -49,8 +48,8 @@ export const IntroContainer = () => {
         <div
           className={`w-full flex flex-col items-center justify-center transition-all duration-700 ease-in-out ${
             namingComplete
-              ? "translate-y-[-100%] text-8xl"
-              : "translate-y-0 text-6xl"
+              ? "translate-y-[-40%] sm:translate-y-[-50%] md:translate-y-[-100%] text-[2.85rem] sm:text-4xl md:text-6xl lg:text-8xl"
+              : "translate-y-0 text-3xl sm:text-2xl md:text-4xl"
           }`}
         >
           <BlurText
@@ -59,7 +58,7 @@ export const IntroContainer = () => {
             animateBy="words"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
-            className="mb-8 font-sans"
+            className="mb-8 font-sans flex justify-center items-center"
           />
         </div>
 
@@ -71,7 +70,9 @@ export const IntroContainer = () => {
               : "scale-75 opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-4xl font-bold mr-4 text-cyan-600">So what am I?</p>
+          <p className="text-[16px] sm:text-1xl md:text-2xl lg:text-4xl font-bold mr-4 text-cyan-600">
+            So what am I?
+          </p>
           <RotatingText
             texts={[
               "A Developer",
@@ -95,7 +96,7 @@ export const IntroContainer = () => {
               "A Thinker",
               "Maybe all of it",
             ]}
-            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg font-bold text-2xl sm:text-3xl md:text-4xl"
+            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg font-bold text-[16px] sm:text-1xl md:text-2xl lg:text-4xl"
             staggerFrom={"first"}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -116,7 +117,7 @@ export const IntroContainer = () => {
         >
           {rotatingComplete && (
             <DecryptedText
-              className="text-[20px] mt-4 sm:mt-6 md:mt-8"
+              className="text-[14px] sm:text-[16px] md:text-[20px] mt-4 sm:mt-6 md:mt-8 "
               text="Welcome to my portfolio! As a passionate and dedicated professional, I thrive on solving challenges and creating impactful solutions in the digital realm. Whether it's developing sleek web applications, designing intuitive interfaces, or experimenting with creative animations, I love merging technology and innovation to bring ideas to life."
               speed={150}
               maxIterations={20}
@@ -124,30 +125,32 @@ export const IntroContainer = () => {
             />
           )}
         </div>
-        <div className="w-[70%] flex items-center mt-8">
-          <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={3}
-            showBorder={true}
-            className="h-[50px] p-5"
-          >
-            <button
-              className="w-full h-full  text-2xl uppercase cursor-pointer"
-              onClick={handleResumeClick}
-            >
-              Resume
-            </button>
-          </GradientText>
-          <div className="w-4"></div>
-          <StarButton
+        <div
+          className={`w-[70%] flex items-center mt-8 transition-all duration-700 ease-in-out delay-300 transform ${
+            rotatingComplete
+              ? "scale-100 opacity-100 translate-y-0"
+              : "scale-75 opacity-0 translate-y-10 pointer-events-none"
+          }`}
+        >
+          <StarComponent
             as="button"
-            className="text-2xl uppercase text-cyan-300 cursor-pointer"
+            className="text-[12px] sm:text-[14px] md:text-[16px] uppercase text-green-300 cursor-pointer"
+            color="green"
+            speed="4s"
+            onClick={handleResumeClick}
+          >
+            Resume
+          </StarComponent>
+          <div className="w-4"></div>
+          <StarComponent
+            as="button"
+            className="text-[12px] sm:text-[14px] md:text-[16px] uppercase text-cyan-300 cursor-pointer"
             color="cyan"
-            speed="2s"
+            speed="4s"
             onClick={handleContactClick}
           >
             Contact Me
-          </StarButton>
+          </StarComponent>
         </div>
       </div>
     </section>
