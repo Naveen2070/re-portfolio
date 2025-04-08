@@ -12,6 +12,8 @@ interface AnimatedContentProps {
   scale?: number;
   threshold?: number;
   delay?: number;
+  width?: string;
+  height?: string;
 }
 
 const AnimatedContent: React.FC<AnimatedContentProps> = ({
@@ -25,6 +27,8 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   scale = 1,
   threshold = 0.1,
   delay = 0,
+  width = "100%",
+  height = "100%",
 }) => {
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -77,8 +81,8 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
         ref,
         style: {
           ...springProps,
-          width: "100%",
-          height: "100%",
+          width: width,
+          height: height,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

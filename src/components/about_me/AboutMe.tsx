@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
-import PixelCard from "../animations/pixel_card/PixelCard";
+import SpotlightCard from "../animations/card_effects/spotlight_card/SpotlightCard";
+import TiltedCard from "../animations/card_effects/tilted_card/TiltedCard";
 
 export const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +40,7 @@ export const AboutMe = () => {
     <section
       id="about"
       ref={sectionRef}
-      className={`h-fit flex flex-col justify-center items-center p-5 bg-black transition-opacity duration-500 ${
+      className={`h-[100dvh] flex flex-col justify-center items-center p-5 bg-black transition-opacity duration-500 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -52,8 +53,10 @@ export const AboutMe = () => {
         animateOpacity
         scale={1.1}
         threshold={0.1}
+        width="fit-content"
+        height="fit-content"
       >
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 p-3 uppercase bg-gradient-to-r from-gray-300 via-silver to-gray-500 text-transparent bg-clip-text">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 p-3 uppercase bg-gradient-to-r from-gray-300 via-silver to-gray-500 text-transparent bg-clip-text">
           About Me
         </h2>
       </AnimatedContent>
@@ -67,16 +70,34 @@ export const AboutMe = () => {
         scale={1.1}
         threshold={0.1}
       >
-        <PixelCard
+        {/* <PixelCard
           variant="blue"
           className="custom-shadow"
           width="w-[80%]"
-          height="h-[800px]"
-        >
-          <div className="absolute">
-            <p>I am Naveen</p>
-          </div>
-        </PixelCard>
+          height="h-[90%]"
+        > */}
+        <div className="flex justify-center items-center w-full h-[100%]">
+          <SpotlightCard
+            spotlightColor="rgba(255, 255, 255, 0.15)"
+            className="custom-shadow h-[100%] w-[80%] p-8"
+          >
+            <div className="flex justify-center items-center">
+              <p>I am Naveen</p>
+              <TiltedCard
+                imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
+                altText="Kendrick Lamar - GNX Album Cover"
+                captionText="Kendrick Lamar - GNX"
+                containerHeight="300px"
+                containerWidth="300px"
+                imageHeight="300px"
+                imageWidth="300px"
+                rotateAmplitude={12}
+                scaleOnHover={1.2}
+                showMobileWarning={false}
+              />
+            </div>
+          </SpotlightCard>
+        </div>
       </AnimatedContent>
     </section>
   );

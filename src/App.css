@@ -36,5 +36,5 @@
 
 /* Add this to your custom CSS */
 .custom-shadow {
-  box-shadow: 0px 8px 24px rgba(0, 26, 255, 0.788); /* Full shadow on all sides */
+  box-shadow: 0px 4px 12px rgba(0, 26, 255, 0.788); /* Full shadow on all sides */
 }
