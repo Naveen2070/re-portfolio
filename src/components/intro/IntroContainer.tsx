@@ -4,6 +4,7 @@ import BlurText from "../animations/text_effects/blur_text/BlurText";
 import RotatingText from "../animations/text_effects/rotating_text/RotatingText";
 import DecryptedText from "../animations/text_effects/decrypt_text/DecryptText";
 import StarComponent from "../animations/star_componenet/StarComponent";
+import Magnet from "../animations/Magnet";
 
 export const IntroContainer = () => {
   const [namingComplete, setNamingComplete] = React.useState(false);
@@ -141,16 +142,18 @@ export const IntroContainer = () => {
           >
             Resume
           </StarComponent>
-          <div className="w-4"></div>
-          <StarComponent
-            as="button"
-            className="text-[12px] sm:text-[14px] md:text-[16px] uppercase text-cyan-300 cursor-pointer"
-            color="cyan"
-            speed="4s"
-            onClick={handleContactClick}
-          >
-            Contact Me
-          </StarComponent>
+          <div className="w-8"></div>
+          <Magnet padding={50} disabled={false} magnetStrength={5}>
+            <StarComponent
+              as="button"
+              className="text-[12px] sm:text-[14px] md:text-[16px] uppercase text-cyan-300 cursor-pointer"
+              color="cyan"
+              speed="4s"
+              onClick={handleContactClick}
+            >
+              Contact Me
+            </StarComponent>
+          </Magnet>
         </div>
       </div>
     </section>
