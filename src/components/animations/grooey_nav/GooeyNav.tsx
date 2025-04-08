@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 export interface GooeyNavItem {
   label: string;
-  href: string;
+  href: string; // Assuming the href is the ID of the section (e.g., "#section1")
 }
 
 export interface GooeyNavProps {
@@ -31,6 +31,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
   const filterRef = useRef<HTMLSpanElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(initialActiveIndex);
+
   const noise = (n = 1) => n / 2 - Math.random() * n;
   const getXY = (
     distance: number,
@@ -41,6 +42,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       ((360 + noise(8)) / totalPoints) * pointIndex * (Math.PI / 180);
     return [distance * Math.cos(angle), distance * Math.sin(angle)];
   };
+
   const createParticle = (
     i: number,
     t: number,
@@ -57,6 +59,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       rotate: rotate > 0 ? (rotate + r / 20) * 10 : (rotate - r / 20) * 10,
     };
   };
+
   const makeParticles = (element: HTMLElement) => {
     const d: [number, number] = particleDistances;
     const r = particleR;
@@ -95,6 +98,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       }, 30);
     }
   };
+
   const updateEffectPosition = (element: HTMLElement) => {
     if (!containerRef.current || !filterRef.current || !textRef.current) return;
     const containerRect = containerRef.current.getBoundingClientRect();
@@ -109,24 +113,47 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
     Object.assign(textRef.current.style, styles);
     textRef.current.innerText = element.innerText;
   };
+
   const handleClick = (e: React.MouseEvent<HTMLLIElement>, index: number) => {
     const liEl = e.currentTarget;
     if (activeIndex === index) return;
+
     setActiveIndex(index);
     updateEffectPosition(liEl);
+
+    // Prevent the default anchor tag behavior
+    e.preventDefault();
+
+    // Find the target element using the href of the clicked item
+    const targetId = liEl
+      .querySelector("a")
+      ?.getAttribute("href")
+      ?.substring(1);
+    const targetElement = targetId ? document.getElementById(targetId) : null;
+
+    if (targetElement) {
+      // Scroll smoothly to the target element
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: "smooth",
+      });
+    }
+
+    // Handle particles and text animation (as before)
     if (filterRef.current) {
       const particles = filterRef.current.querySelectorAll(".particle");
       particles.forEach((p) => filterRef.current!.removeChild(p));
     }
     if (textRef.current) {
       textRef.current.classList.remove("active");
-      void textRef.current.offsetWidth;
+      void textRef.current.offsetWidth; // Trigger reflow
       textRef.current.classList.add("active");
     }
     if (filterRef.current) {
       makeParticles(filterRef.current);
     }
   };
+
   const handleKeyDown = (
     e: React.KeyboardEvent<HTMLAnchorElement>,
     index: number
@@ -142,6 +169,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
       }
     }
   };
+
   useEffect(() => {
     if (!navRef.current || !containerRef.current) return;
     const activeLi = navRef.current.querySelectorAll("li")[
@@ -165,7 +193,6 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
 
   return (
     <>
-      {/* This effect is quite difficult to recreate faithfully using Tailwind, so a style tag is a necessary workaround */}
       <style>
         {`
           :root {
