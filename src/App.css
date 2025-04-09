@@ -34,7 +34,23 @@
   color: #888;
 }
 
-/* Add this to your custom CSS */
 .custom-shadow {
-  box-shadow: 0px 4px 12px rgba(0, 26, 255, 0.788); /* Full shadow on all sides */
+  box-shadow: 0px 4px 12px rgba(0, 26, 255, 0.788);
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.wave {
+  display: inline-block;
+  animation: wave 1s infinite ease-in-out;
 }

@@ -59,7 +59,7 @@ export const IntroContainer = () => {
             animateBy="words"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
-            className="mb-8 font-sans flex justify-center items-center"
+            className="mb-8 flex justify-center items-center"
           />
         </div>
 
@@ -71,7 +71,7 @@ export const IntroContainer = () => {
               : "scale-75 opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-[16px] sm:text-1xl md:text-2xl lg:text-4xl font-bold mr-4 text-cyan-600">
+          <p className="text-[20px] sm:text-1xl md:text-2xl lg:text-4xl font-bold mr-4 text-cyan-600">
             So what am I?
           </p>
           <RotatingText
@@ -97,7 +97,7 @@ export const IntroContainer = () => {
               "A Thinker",
               "Maybe all of it",
             ]}
-            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg font-bold text-[16px] sm:text-1xl md:text-2xl lg:text-4xl"
+            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg font-bold text-[20px] sm:text-1xl md:text-2xl lg:text-4xl"
             staggerFrom={"first"}
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
@@ -118,7 +118,7 @@ export const IntroContainer = () => {
         >
           {rotatingComplete && (
             <DecryptedText
-              className="text-[14px] sm:text-[16px] md:text-[20px] mt-4 sm:mt-6 md:mt-8 "
+              className="text-[18px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8"
               text="Welcome to my portfolio! As a passionate and dedicated professional, I thrive on solving challenges and creating impactful solutions in the digital realm. Whether it's developing sleek web applications, designing intuitive interfaces, or experimenting with creative animations, I love merging technology and innovation to bring ideas to life."
               speed={150}
               maxIterations={20}
