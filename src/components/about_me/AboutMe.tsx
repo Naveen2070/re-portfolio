@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
 import SpotlightCard from "../animations/card_effects/spotlight_card/SpotlightCard";
 import TiltedCard from "../animations/card_effects/tilted_card/TiltedCard";
+import PlaceHolderImg from "../../assets/images/placeholder.jpg";
 
 export const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,19 +83,23 @@ export const AboutMe = () => {
             className="custom-shadow h-[100%] w-[80%] p-8"
           >
             <div className="flex justify-center items-center">
-              <p>I am Naveen</p>
-              <TiltedCard
-                imageSrc="https://i.scdn.co/image/ab67616d0000b273d9985092cd88bffd97653b58"
-                altText="Kendrick Lamar - GNX Album Cover"
-                captionText="Kendrick Lamar - GNX"
-                containerHeight="300px"
-                containerWidth="300px"
-                imageHeight="300px"
-                imageWidth="300px"
-                rotateAmplitude={12}
-                scaleOnHover={1.2}
-                showMobileWarning={false}
-              />
+              <div>
+                <p>I am Naveen</p>
+              </div>
+              <div>
+                <TiltedCard
+                  imageSrc={PlaceHolderImg}
+                  altText="Naveen R's profile picture"
+                  containerHeight="300px"
+                  containerWidth="300px"
+                  imageHeight="300px"
+                  imageWidth="300px"
+                  rotateAmplitude={12}
+                  scaleOnHover={1.2}
+                  showMobileWarning={false}
+                  showTooltip={false}
+                />
+              </div>
             </div>
           </SpotlightCard>
         </div>
