@@ -73,14 +73,14 @@ export const AboutMe = () => {
           scale={1.1}
           threshold={0.1}
         >
-          <div className="flex justify-center items-center w-full h-[100%]">
+          <div className="flex justify-center items-center w-full h-[98%]">
             <SpotlightCard
               spotlightColor="rgba(255, 255, 255, 0.15)"
-              className="custom-shadow h-[100%] w-[80%] p-8 flex flex-col justify-center items-center"
+              className="custom-shadow h-[98%] w-[80%] p-8 flex flex-col justify-center items-center"
             >
-              <div className="flex justify-between items-center h-full w-full">
+              <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-between items-center h-full w-full">
                 <div className="p-8">
-                  <p className="text-[18px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8 bg-gradient-to-r from-gray-300 via-silver to-gray-500 text-transparent bg-clip-text select-none">
+                  <p className="text-[14px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8 bg-gradient-to-r from-gray-300 via-silver to-gray-500 text-transparent bg-clip-text select-none">
                     <span className="wave text-3xl text-black">👋</span> Hi,
                     <span className="text-blue-500 ml-2">I'm Naveen!</span> A
                     passionate and driven software developer with a keen eye for
@@ -96,7 +96,7 @@ export const AboutMe = () => {
                       architecture, GraphQL and RESTful APIs.
                     </span>
                   </p>
-                  <p className="text-[18px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8 bg-gradient-to-r from-gray-300 via-silver to-gray-500 text-transparent bg-clip-text select-none">
+                  <p className="text-[14px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8 bg-gradient-to-r from-gray-300 via-silver to-gray-500 text-transparent bg-clip-text select-none">
                     When I'm not immersed in coding, designing or
                     problem-solving, you can find me
                     <span className="text-blue-500 ml-2">
@@ -114,14 +114,14 @@ export const AboutMe = () => {
                     software development.
                   </p>
                 </div>
-                <div>
+                <div className="lg:h-[60dvh] lg:w-[180dvw] lg:visible md:visible">
                   <TiltedCard
                     imageSrc={PlaceHolderImg}
                     altText="Naveen R's profile picture"
-                    containerHeight="60dvh"
-                    containerWidth="400px"
-                    imageHeight="60dvh"
-                    imageWidth="400px"
+                    containerHeight="100%"
+                    containerWidth="100%"
+                    imageHeight="100%"
+                    imageWidth="100%"
                     rotateAmplitude={12}
                     scaleOnHover={1.05}
                     showMobileWarning={false}
