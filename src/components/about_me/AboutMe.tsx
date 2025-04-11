@@ -42,7 +42,7 @@ export const AboutMe = () => {
     <section
       id="about"
       ref={sectionRef}
-      className={`h-[100dvh] flex justify-center items-center p-5 bg-black transition-opacity duration-500 ${
+      className={`h-[100dvh] flex justify-center items-center p-5 bg-transparent transition-opacity duration-500 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -76,7 +76,7 @@ export const AboutMe = () => {
           <div className="flex justify-center items-center w-full h-[98%]">
             <SpotlightCard
               spotlightColor="rgba(255, 255, 255, 0.15)"
-              className="custom-shadow h-[98%] w-[80%] p-8 flex flex-col justify-center items-center"
+              className="custom-shadow lg:h-[98%] md:h-[98%] h-[80%] w-[80%] lg:p-8 md:p-8 flex flex-col justify-center items-center"
             >
               <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-between items-center h-full w-full">
                 <div className="p-8">

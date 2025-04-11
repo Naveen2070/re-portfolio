@@ -35,15 +35,6 @@ export const IntroContainer = () => {
 
   return (
     <section id="home" className="relative w-full h-[93dvh] flex flex-col">
-      <div className="absolute inset-0 z-0">
-        <Squares
-          speed={0.5}
-          squareSize={40}
-          direction="diagonal"
-          borderColor="#5A6571"
-          hoverFillColor="#222"
-        />
-      </div>
       <div className="w-full h-full flex flex-col justify-center items-center relative z-10 p-8 text-white bg-transparent">
         {/* BlurText animation */}
         <div
