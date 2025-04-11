@@ -132,6 +132,35 @@ export const Exprience = () => {
               Experience
             </h2>
           </AnimatedContent>
+          <AnimatedContent
+            distance={100}
+            direction="horizontal"
+            reverse={false}
+            config={{ tension: 50, friction: 25 }}
+            initialOpacity={0.0}
+            animateOpacity
+            scale={1.1}
+            threshold={0.1}
+            width="80dvw"
+            height="fit-content"
+          >
+            <div className="custom-shadow flex justify-between items-center w-full h-fit p-4 bg-[#171717] rounded-3xl border border-neutral-900">
+              {/* First section */}
+              <div className="w-full py-4 flex justify-center items-center">
+                <p className="text-white">First Content</p>
+              </div>
+
+              {/* Divider */}
+              <div className="w-full flex justify-center my-2">
+                <div className="w-px h-10 bg-neutral-600" />
+              </div>
+
+              {/* Second section */}
+              <div className="w-full py-4 flex justify-center items-center">
+                <p className="text-white">Second Content</p>
+              </div>
+            </div>
+          </AnimatedContent>
         </div>
       </section>
     </>
