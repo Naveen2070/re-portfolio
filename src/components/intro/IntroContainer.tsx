@@ -1,5 +1,4 @@
 import React from "react";
-import Squares from "../animations/squares_bg/SquaresBackground";
 import BlurText from "../animations/text_effects/blur_text/BlurText";
 import RotatingText from "../animations/text_effects/rotating_text/RotatingText";
 import DecryptedText from "../animations/text_effects/decrypt_text/DecryptText";
@@ -30,7 +29,6 @@ export const IntroContainer = () => {
   const handleContactClick = () => {
     const contactSection = document.getElementById("contact");
     contactSection?.scrollIntoView({ behavior: "smooth" });
-    window.location.hash = "#contact";
   };
 
   return (

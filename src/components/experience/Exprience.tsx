@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
+import { ExpItem } from "./ExpItem";
 
 export const Exprience = () => {
   const [isVisible, setIsVisible] = useState(false);
-  // use for carousel
-  //   const screen = useBreakpoint();
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -35,77 +34,6 @@ export const Exprience = () => {
     };
   }, []);
 
-  // use for carousel
-  //   const activeScreen = useMemo(() => getActiveBreakpoint(screen), [screen]);
-
-  //   const width = useMemo(() => {
-  //     switch (activeScreen) {
-  //       case "xs":
-  //         return 300;
-  //       case "sm":
-  //         return 400;
-  //       case "md":
-  //         return 500;
-  //       case "lg":
-  //         return 1000;
-  //       case "xl":
-  //         return 1100;
-  //       case "2xl":
-  //         return 800;
-  //       default:
-  //         return 400;
-  //     }
-  //   }, [activeScreen]);
-
-  //   const height = useMemo(() => {
-  //     switch (activeScreen) {
-  //       case "xs":
-  //         return 800;
-  //       case "sm":
-  //         return 800;
-  //       case "md":
-  //         return 600;
-  //       case "lg":
-  //         return 600;
-  //       case "xl":
-  //         return 600;
-  //       case "2xl":
-  //         return 800;
-  //       default:
-  //         return 400;
-  //     }
-  //   }, [activeScreen]);
-
-  //   const items: CarouselItem[] = [
-  //     {
-  //       id: 1,
-  //       title: "Title 1",
-  //       description: "Description 1",
-  //       icon: <p>a</p>,
-  //     },
-  //   ];
-
-  const items = [
-    {
-      title: "January 2022",
-      cardTitle: "Event 1",
-      cardSubtitle: "Event 1 Subtitle",
-      cardDetailedText: "This is the first event on the timeline.",
-    },
-    {
-      title: "February 2022",
-      cardTitle: "Event 2",
-      cardSubtitle: "Event 2 Subtitle",
-      cardDetailedText: "This is the second event on the timeline.",
-    },
-    {
-      title: "March 2022",
-      cardTitle: "Event 3",
-      cardSubtitle: "Event 3 Subtitle",
-      cardDetailedText: "This is the third event on the timeline.",
-    },
-  ];
-
   return (
     <>
       <section
@@ -132,35 +60,20 @@ export const Exprience = () => {
               Experience
             </h2>
           </AnimatedContent>
-          <AnimatedContent
-            distance={100}
-            direction="horizontal"
-            reverse={false}
-            config={{ tension: 50, friction: 25 }}
-            initialOpacity={0.0}
-            animateOpacity
-            scale={1.1}
-            threshold={0.1}
-            width="80dvw"
-            height="fit-content"
-          >
-            <div className="custom-shadow flex justify-between items-center w-full h-fit p-4 bg-[#171717] rounded-3xl border border-neutral-900">
-              {/* First section */}
-              <div className="w-full py-4 flex justify-center items-center">
-                <p className="text-white">First Content</p>
-              </div>
-
-              {/* Divider */}
-              <div className="w-full flex justify-center my-2">
-                <div className="w-px h-10 bg-neutral-600" />
-              </div>
-
-              {/* Second section */}
-              <div className="w-full py-4 flex justify-center items-center">
-                <p className="text-white">Second Content</p>
-              </div>
-            </div>
-          </AnimatedContent>
+          <ExpItem
+            Company="Company"
+            Role="Role"
+            Duration="Duration"
+            Description="Description"
+            Reverse={true}
+          />
+          <ExpItem
+            Company="Company"
+            Role="Role"
+            Duration="Duration"
+            Description="Description"
+            Reverse={true}
+          />
         </div>
       </section>
     </>
