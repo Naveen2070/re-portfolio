@@ -2,20 +2,20 @@ import React from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
 import PlaceHolderImg from "../../assets/images/placeholder.jpg";
 
-type Props = {
-  ImageUrl?: string;
+export type ExpProps = {
+  ImageUri?: string;
   Role?: string;
   Company?: string;
   Duration?: string;
-  Description?: string;
+  Description?: React.JSX.Element;
   Direction?: "vertical" | "horizontal";
   Reverse?: boolean;
   ReverseContent?: boolean;
 };
 
-export const ExpItem = (props: Props): React.JSX.Element => {
+export const ExpItem = (props: ExpProps): React.JSX.Element => {
   const {
-    ImageUrl = PlaceHolderImg,
+    ImageUri = PlaceHolderImg,
     Role,
     Company,
     Duration,
@@ -41,14 +41,16 @@ export const ExpItem = (props: Props): React.JSX.Element => {
       <div
         className={`transform transition-transform duration-500 ease-[cubic-bezier(0.4, 0, 0.2, 1)] 
     hover:scale-[1.015] hover:-translate-y-1 
-    flex ${ReverseContent ? "flex-row-reverse" : ""} 
+    flex flex-col sm:flex-row md:flex-row ${
+      ReverseContent ? "flex-row-reverse" : ""
+    } 
     items-stretch w-full h-fit p-4 bg-[#171717] rounded-3xl 
     border border-neutral-900 hover:border-neutral-400 mb-4`}
       >
         {/* First section */}
-        <div className="w-fit p-4 flex justify-center items-center">
+        <div className="w-full sm:w-fit md:w-fit p-4 flex justify-center items-center">
           <img
-            src={ImageUrl}
+            src={ImageUri}
             alt="Company Logo"
             className="w-50 h-full rounded-full"
           />
@@ -60,13 +62,15 @@ export const ExpItem = (props: Props): React.JSX.Element => {
         </div>
 
         {/* Second section */}
-        <div className="w-full py-4 pl-4 flex flex-col justify-between">
-          <p className="text-white font-semibold text-lg">{Role}</p>
-          <div className="flex justify-between items-center-safe">
+        <div className="w-full text-[14px] sm:text-[20px] md:text-[24px] py-4 pl-4 flex flex-col justify-center">
+          <p className="text-white text-[16px] sm:text-[22px] md:text-[26px] font-semibold">
+            {Role}
+          </p>
+          <div className="flex justify-between items-center-safe text-[12px] sm:text-[16px] md:text-[18px]">
             <p className="text-neutral-400">{Company}</p>
-            <p className="text-neutral-500 italic text-sm">{Duration}</p>
+            <p className="text-neutral-500 italic">{Duration}</p>
           </div>
-          <p className="text-neutral-300 mt-2">{Description}</p>
+          {Description}
         </div>
       </div>
     </AnimatedContent>

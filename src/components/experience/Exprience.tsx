@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
-import { ExpItem } from "./ExpItem";
+import { ExpItem, ExpProps } from "./ExpItem";
+import InspireLogo from "../../assets/images/Inspire-textless.png";
 
 export const Exprience = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,12 +35,48 @@ export const Exprience = () => {
     };
   }, []);
 
+  const generateDescription = (content: React.ReactNode) => (
+    <p className="text-neutral-300 mt-2">{content}</p>
+  );
+
+  const ExpItems: ExpProps[] = [
+    {
+      ImageUri: InspireLogo,
+      Role: "Junior Software Developer",
+      Company: "Inspire Clean Energy",
+      Duration: "November 2023 - Present",
+      Description: generateDescription(
+        <>
+          Worked on the<span className="text-blue-500 ml-1">frontend</span>{" "}
+          development of the
+          <span className="text-blue-500 ml-1">
+            Analytics tab to visualize data from solar sites.
+          </span>{" "}
+          <span className="text-blue-500 ml-1">
+            Implement frontend role-based access (RBA)
+          </span>{" "}
+          and
+          <span className="text-blue-500 ml-1">
+            optimize Core Web Vitals
+          </span>{" "}
+          to improve performance on the analytics page. Also
+          <span className="text-blue-500 ml-1">
+            maintained the production repository
+          </span>{" "}
+          and monitored the
+          <span className="text-blue-500 ml-1">development pipelines</span> to
+          ensure continuous integration and deployment.
+        </>
+      ),
+    },
+  ];
+
   return (
     <>
       <section
         id="about"
         ref={sectionRef}
-        className={`relative h-fit flex justify-center items-center p-5 bg-transparent transition-opacity duration-500 ${
+        className={`relative min-h-[100dvh] h-fit flex justify-center items-center p-5 bg-transparent transition-opacity duration-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
@@ -60,20 +97,16 @@ export const Exprience = () => {
               Experience
             </h2>
           </AnimatedContent>
-          <ExpItem
-            Company="Company"
-            Role="Role"
-            Duration="Duration"
-            Description="Description"
-            Reverse={true}
-          />
-          <ExpItem
-            Company="Company"
-            Role="Role"
-            Duration="Duration"
-            Description="Description"
-            Reverse={true}
-          />
+          {ExpItems.map((item, index) => (
+            <ExpItem
+              ImageUri={item.ImageUri}
+              Company={item.Company}
+              Role={item.Role}
+              Duration={item.Duration}
+              Description={item.Description}
+              Reverse={index % 2 === 0}
+            />
+          ))}
         </div>
       </section>
     </>
