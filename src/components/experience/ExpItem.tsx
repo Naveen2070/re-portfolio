@@ -52,7 +52,7 @@ export const ExpItem = (props: ExpProps): React.JSX.Element => {
           <img
             src={ImageUri}
             alt="Company Logo"
-            className="w-50 h-full rounded-full"
+            className="w-50 h-full object-contain rounded-full"
           />
         </div>
 

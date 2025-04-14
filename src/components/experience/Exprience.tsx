@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
 import { ExpItem, ExpProps } from "./ExpItem";
 import InspireLogo from "../../assets/images/Inspire-textless.png";
+import EnterOtLogo from "../../assets/images/enterot.jpeg";
+import FreeLancerLogo from "./../../assets/images/freelancer.png";
 
 export const Exprience = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,7 +49,7 @@ export const Exprience = () => {
       Duration: "November 2023 - Present",
       Description: generateDescription(
         <>
-          Worked on the<span className="text-blue-500 ml-1">frontend</span>{" "}
+          Working on the<span className="text-blue-500 ml-1">frontend</span>{" "}
           development of the
           <span className="text-blue-500 ml-1">
             Analytics tab to visualize data from solar sites.
@@ -66,6 +68,48 @@ export const Exprience = () => {
           and monitored the
           <span className="text-blue-500 ml-1">development pipelines</span> to
           ensure continuous integration and deployment.
+        </>
+      ),
+    },
+    {
+      ImageUri: EnterOtLogo,
+      Role: "Web Developer",
+      Company: "Inspire Clean Energy",
+      Duration: "July 2023 - October 2023",
+      Description: generateDescription(
+        <>
+          Worked as a
+          <span className="text-blue-500 ml-1">
+            Fullstack Developer using technologies such as React, JavaScript,
+            HTML, CSS, SQL, and PostgreSQL to build a custom resource management
+            software.
+          </span>{" "}
+          Contributed across the full development lifecycle—from initial
+          implementation to deployment on the QA server—collaborating closely
+          with the development team. Also supported post-deployment updates and
+          feature enhancements.
+        </>
+      ),
+    },
+    {
+      ImageUri: FreeLancerLogo,
+      Role: "Web Developer",
+      Company: "Inspire Clean Energy",
+      Duration: "January 2023 - November 2023",
+      Description: generateDescription(
+        <>
+          Worked as
+          <span className="text-blue-500 ml-1">
+            a Fullstack Developer handling both frontend and backend development
+            for a range of dynamic and static websites.
+          </span>{" "}
+          Delivered end-to-end solutions tailored to client needs,
+          <span className="text-blue-500 ml-1">
+            including responsive UI design, API integration, and database
+            management.
+          </span>{" "}
+          Gained hands-on experience collaborating directly with clients and
+          managing project lifecycles independently.
         </>
       ),
     },
