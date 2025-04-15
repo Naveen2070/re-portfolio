@@ -4,6 +4,7 @@ import RotatingText from "../animations/text_effects/rotating_text/RotatingText"
 import DecryptedText from "../animations/text_effects/decrypt_text/DecryptText";
 import StarComponent from "../animations/star_componenet/StarComponent";
 import Magnet from "../animations/Magnet";
+import { Content } from "../../data/portfolioDetails";
 
 export const IntroContainer = () => {
   const [namingComplete, setNamingComplete] = React.useState(false);
@@ -43,7 +44,7 @@ export const IntroContainer = () => {
           }`}
         >
           <BlurText
-            text="Hello! I'm Naveen"
+            text={Content.intro.greeting}
             delay={250}
             animateBy="words"
             direction="top"
@@ -64,28 +65,7 @@ export const IntroContainer = () => {
             So what am I?
           </p>
           <RotatingText
-            texts={[
-              "A Developer",
-              "A Techophile",
-              "A Creator",
-              "An Innovator",
-              "A Student",
-              "A Programmer",
-              "An Engineer",
-              "A Visionary",
-              "A Builder",
-              "A Learner",
-              "A Full-Stack Developer",
-              "A Designer",
-              "A Coder",
-              "A Problem-Solver",
-              "An Explorer",
-              "A Cross-Platform Developer",
-              "A Software Developer",
-              "A Technologist",
-              "A Thinker",
-              "Maybe all of it",
-            ]}
+            texts={Content.intro.whoAmI}
             mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg font-bold text-[20px] sm:text-1xl md:text-2xl lg:text-4xl"
             staggerFrom={"first"}
             initial={{ y: "100%" }}
@@ -108,7 +88,7 @@ export const IntroContainer = () => {
           {rotatingComplete && (
             <DecryptedText
               className="text-[18px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8"
-              text="Welcome to my portfolio! As a passionate and dedicated professional, I thrive on solving challenges and creating impactful solutions in the digital realm. Whether it's developing sleek web applications, designing intuitive interfaces, or experimenting with creative animations, I love merging technology and innovation to bring ideas to life."
+              text={Content.intro.introduction}
               speed={150}
               maxIterations={20}
               animateOn="view"
