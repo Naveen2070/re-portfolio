@@ -86,6 +86,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          padding: "1rem",
         },
       }}
     >

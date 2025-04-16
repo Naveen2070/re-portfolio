@@ -4,6 +4,7 @@ import Squares from "./components/animations/squares_bg/SquaresBackground";
 import { Exprience } from "./components/experience/Exprience";
 import { Header } from "./components/header/Header";
 import { IntroContainer } from "./components/intro/IntroContainer";
+import { SkillsBlock } from "./components/skillsBlock/SkillsBlock";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <IntroContainer />
         <AboutMe />
         <Exprience />
+        <SkillsBlock />
       </div>
     </>
   );
