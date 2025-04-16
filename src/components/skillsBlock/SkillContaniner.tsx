@@ -11,9 +11,10 @@ export type SkillProps = {
   Direction?: "vertical" | "horizontal";
   Reverse?: boolean;
   ReverseContent?: boolean;
+  isFull?: boolean;
 };
 
-export const SkillContaniner = (props: SkillProps): React.JSX.Element => {
+export const SkillContainer = (props: SkillProps): React.JSX.Element => {
   const {
     Items,
     Title,
@@ -21,6 +22,7 @@ export const SkillContaniner = (props: SkillProps): React.JSX.Element => {
     Direction = "horizontal",
     Reverse = false,
     ReverseContent = false,
+    isFull = false,
   } = props;
 
   return (
@@ -41,11 +43,17 @@ export const SkillContaniner = (props: SkillProps): React.JSX.Element => {
 flex flex-col sm:flex-row md:flex-row ${
           ReverseContent ? "flex-row-reverse" : ""
         } 
-items-stretch w-fit h-fit p-4 bg-[#171717] rounded-3xl 
+items-stretch  ${
+          isFull ? "w-full" : "w-fit"
+        } h-fit p-4 bg-[#171717] rounded-3xl 
 border border-neutral-900 hover:border-neutral-400 mb-4 justify-center`}
       >
         {Items && Items.length > 0 ? (
-          <div className="flex flex-col justify-center-safe items-center-safe p-8">
+          <div
+            className={`flex flex-col justify-center-safe items-center-safe p-8 ${
+              isFull ? "w-full" : ""
+            }`}
+          >
             <h2 className="text-3xl font-bold">{Title}</h2>
             <GlassIcons items={Items} className={ClassName} />
           </div>

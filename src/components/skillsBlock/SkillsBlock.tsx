@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
-import { SkillContaniner } from "./SkillContaniner";
+import { SkillContainer, SkillProps } from "./SkillContaniner";
+import { Content } from "../../data/portfolioDetails";
 
 export const SkillsBlock = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,63 +35,7 @@ export const SkillsBlock = () => {
     };
   }, []);
 
-  const items = [
-    {
-      icon: (
-        <img
-          alt="javascript"
-          width={100}
-          height={100}
-          className="rounded-[10px]"
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-        />
-      ),
-      color: "#DBC217",
-      label: "JavaScript",
-    },
-    {
-      icon: (
-        <img
-          alt="typescript"
-          width={100}
-          height={100}
-          className="rounded-[10px]"
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
-        />
-      ),
-      color: "#007CCF",
-      label: "TypeScript",
-    },
-    {
-      icon: (
-        <img
-          alt="golang"
-          width={100}
-          height={100}
-          className="rounded-[10px]"
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg"
-        />
-      ),
-      color: "#005995",
-      label: "Golang",
-    },
-    {
-      icon: (
-        <img
-          alt="dart"
-          width={100}
-          height={100}
-          className="rounded-[10px]"
-          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg"
-        />
-      ),
-      color: "#009B8E",
-      label: "Dart",
-    },
-    { icon: <p>a</p>, color: "orange", label: "Notes" },
-    { icon: <p>a</p>, color: "green", label: "Stats" },
-  ];
-
+  const tools: SkillProps[] = Content.skills.items;
   return (
     <section
       id="about"
@@ -116,10 +61,10 @@ export const SkillsBlock = () => {
             Tools and Technologies
           </h2>
         </AnimatedContent>
-
-        <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center w-full h-[100%]">
-          <SkillContaniner Items={items} Reverse={true} Title="Languages" />
-          <SkillContaniner Items={items} Title="Languages" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center w-full h-full">
+          {tools.map((tool, index) => (
+            <SkillContainer key={index} {...tool} />
+          ))}
         </div>
       </div>
     </section>
