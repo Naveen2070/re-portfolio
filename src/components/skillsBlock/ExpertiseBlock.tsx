@@ -78,8 +78,14 @@ export const ExpertiseBlock = () => {
   border border-neutral-900 hover:border-neutral-400 mb-4`}
           >
             <div className="flex-1 text-white p-4">
-              <h3 className="text-xl font-bold mb-2 text-silver">Frontend</h3>
-              <ul className="list-disc list-inside text-gray-300 text-sm">
+              <h3 className="text-3xl font-bold mb-2 text-silver">
+                Frontend Expertise
+              </h3>
+              <p className="text-gray-400 text-[20px] mb-2">
+                I build performant and responsive user interfaces with a focus
+                on modern frameworks and efficient tooling.
+              </p>
+              <ul className="list-disc list-inside text-gray-300 text-[20px]">
                 <li>TypeScript, JavaScript</li>
                 <li>React, Angular</li>
                 <li>React Router, TanStack Router</li>
@@ -90,34 +96,52 @@ export const ExpertiseBlock = () => {
               </ul>
             </div>
             <div className="flex-1 text-white p-4">
-              <h3 className="text-xl font-bold mb-2 text-silver">Backend</h3>
-              <ul className="list-disc list-inside text-gray-300 text-sm">
+              <h3 className="text-3xl font-bold mb-2 text-silver">
+                Backend Proficiency
+              </h3>
+              <p className="text-gray-400 text-[20px] mb-2">
+                I develop scalable and maintainable APIs and services using
+                modern backend frameworks.
+              </p>
+              <ul className="list-disc list-inside text-gray-300 text-[20px]">
                 <li>Express.js, NestJS</li>
                 <li>Spring Boot, .NET (ASP.NET API)</li>
                 <li>FastAPI, Django</li>
               </ul>
             </div>
             <div className="flex-1 text-white p-4">
-              <h3 className="text-xl font-bold mb-2 text-silver">Databases</h3>
-              <ul className="list-disc list-inside text-gray-300 text-sm">
+              <h3 className="text-3xl font-bold mb-2 text-silver">
+                Database Knowledge
+              </h3>
+              <p className="text-gray-400 text-[20px] mb-2">
+                Skilled in working with both relational and NoSQL databases.
+              </p>
+              <ul className="list-disc list-inside text-gray-300 text-[20px]">
                 <li>PostgreSQL</li>
                 <li>MongoDB</li>
               </ul>
             </div>
             <div className="flex-1 text-white p-4">
-              <h3 className="text-xl font-bold mb-2 text-silver">
-                Cross-Platform
+              <h3 className="text-3xl font-bold mb-2 text-silver">
+                Cross-Platform Development
               </h3>
-              <ul className="list-disc list-inside text-gray-300 text-sm">
+              <p className="text-gray-400 text-[20px] mb-2">
+                I create seamless experiences across mobile and desktop
+                platforms.
+              </p>
+              <ul className="list-disc list-inside text-gray-300 text-[20px]">
                 <li>Flutter, React Native</li>
                 <li>Tauri, Electron</li>
               </ul>
             </div>
             <div className="flex-1 text-white p-4">
-              <h3 className="text-xl font-bold mb-2 text-silver">
-                Native Development
+              <h3 className="text-3xl font-bold mb-2 text-silver">
+                Native Mobile Development
               </h3>
-              <ul className="list-disc list-inside text-gray-300 text-sm">
+              <p className="text-gray-400 text-[20px] mb-2">
+                Focused on delivering intuitive and native Android apps.
+              </p>
+              <ul className="list-disc list-inside text-gray-300 text-[20px]">
                 <li>Android with Kotlin & Jetpack Compose</li>
               </ul>
             </div>
