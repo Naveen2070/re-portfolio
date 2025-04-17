@@ -80,24 +80,22 @@ export const IntroContainer = () => {
         </div>
         <div
           className={`w-[80%] flex items-center justify-center transition-all duration-700 ease-in-out delay-300 transform ${
-            rotatingComplete
+            namingComplete
               ? "scale-100 opacity-100 translate-y-0"
               : "scale-75 opacity-0 translate-y-10 pointer-events-none"
           }`}
         >
-          {rotatingComplete && (
-            <DecryptedText
-              className="text-[18px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8"
-              text={Content.intro.introduction}
-              speed={150}
-              maxIterations={20}
-              animateOn="view"
-            />
-          )}
+          <DecryptedText
+            className="text-[18px] sm:text-[20px] md:text-[24px] mt-4 sm:mt-6 md:mt-8"
+            text={Content.intro.introduction}
+            speed={100}
+            maxIterations={10}
+            animateOn="view"
+          />
         </div>
         <div
           className={`w-[70%] flex items-center mt-8 transition-all duration-700 ease-in-out delay-300 transform ${
-            rotatingComplete
+            namingComplete
               ? "scale-100 opacity-100 translate-y-0"
               : "scale-75 opacity-0 translate-y-10 pointer-events-none"
           }`}

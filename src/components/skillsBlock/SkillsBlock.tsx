@@ -61,7 +61,7 @@ export const SkillsBlock = () => {
             Tools and Technologies
           </h2>
         </AnimatedContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center w-full h-full">
+        <div className="flex flex-wrap justify-center items-center gap-4 w-full h-full">
           {tools.map((tool, index) => (
             <SkillContainer key={index} {...tool} />
           ))}
