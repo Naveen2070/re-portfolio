@@ -73,7 +73,7 @@ export const ExpertiseBlock = () => {
           <div
             className={`transform transition-transform duration-500 ease-[cubic-bezier(0.4, 0, 0.2, 1)] 
   hover:scale-[1.015] hover:-translate-y-1 
-  flex flex-col sm:flex-row md:flex-row 
+  flex flex-col  md:flex-col lg:flex-row 
   items-stretch w-full h-fit p-4 bg-[#171717] rounded-3xl 
   border border-neutral-900 hover:border-neutral-400 mb-4`}
           >
