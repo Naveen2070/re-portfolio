@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import AnimatedContent from "../animations/contexts/AnimatedContext";
+import ExpertiseSection, { ExpertiseSectionProps } from "./ExpertiseSection";
+import { Content } from "../../data/portfolioDetails";
 
 export const ExpertiseBlock = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,6 +34,8 @@ export const ExpertiseBlock = () => {
       }
     };
   }, []);
+
+  const sections: ExpertiseSectionProps[] = Content.skills.expertise;
 
   return (
     <section
@@ -77,74 +81,14 @@ export const ExpertiseBlock = () => {
   items-stretch w-full h-fit p-4 bg-[#171717] rounded-3xl 
   border border-neutral-900 hover:border-neutral-400 mb-4`}
           >
-            <div className="flex-1 text-white p-4">
-              <h3 className="text-3xl font-bold mb-2 text-silver">
-                Frontend Expertise
-              </h3>
-              <p className="text-gray-400 text-[20px] mb-2">
-                I build performant and responsive user interfaces with a focus
-                on modern frameworks and efficient tooling.
-              </p>
-              <ul className="list-disc list-inside text-gray-300 text-[20px]">
-                <li>TypeScript, JavaScript</li>
-                <li>React, Angular</li>
-                <li>React Router, TanStack Router</li>
-                <li>Redux, Zustand</li>
-                <li>TanStack Query</li>
-                <li>Vite, Rustpack</li>
-                <li>Axios</li>
-              </ul>
-            </div>
-            <div className="flex-1 text-white p-4">
-              <h3 className="text-3xl font-bold mb-2 text-silver">
-                Backend Proficiency
-              </h3>
-              <p className="text-gray-400 text-[20px] mb-2">
-                I develop scalable and maintainable APIs and services using
-                modern backend frameworks.
-              </p>
-              <ul className="list-disc list-inside text-gray-300 text-[20px]">
-                <li>Express.js, NestJS</li>
-                <li>Spring Boot, .NET (ASP.NET API)</li>
-                <li>FastAPI, Django</li>
-              </ul>
-            </div>
-            <div className="flex-1 text-white p-4">
-              <h3 className="text-3xl font-bold mb-2 text-silver">
-                Database Knowledge
-              </h3>
-              <p className="text-gray-400 text-[20px] mb-2">
-                Skilled in working with both relational and NoSQL databases.
-              </p>
-              <ul className="list-disc list-inside text-gray-300 text-[20px]">
-                <li>PostgreSQL</li>
-                <li>MongoDB</li>
-              </ul>
-            </div>
-            <div className="flex-1 text-white p-4">
-              <h3 className="text-3xl font-bold mb-2 text-silver">
-                Cross-Platform Development
-              </h3>
-              <p className="text-gray-400 text-[20px] mb-2">
-                I create seamless experiences across mobile and desktop
-                platforms.
-              </p>
-              <ul className="list-disc list-inside text-gray-300 text-[20px]">
-                <li>Flutter, React Native</li>
-                <li>Tauri, Electron</li>
-              </ul>
-            </div>
-            <div className="flex-1 text-white p-4">
-              <h3 className="text-3xl font-bold mb-2 text-silver">
-                Native Mobile Development
-              </h3>
-              <p className="text-gray-400 text-[20px] mb-2">
-                Focused on delivering intuitive and native Android apps.
-              </p>
-              <ul className="list-disc list-inside text-gray-300 text-[20px]">
-                <li>Android with Kotlin & Jetpack Compose</li>
-              </ul>
-            </div>
+            {sections.map((section, index) => (
+              <ExpertiseSection
+                key={index}
+                title={section.title}
+                description={section.description}
+                items={section.items}
+              />
+            ))}
           </div>
         </AnimatedContent>
       </div>

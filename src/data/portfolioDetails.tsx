@@ -11,6 +11,7 @@ import EnterOtLogo from "../assets/images/enterot.jpeg";
 import FreeLancerLogo from "../assets/images/freelancer.png";
 import { SkillProps } from "../components/skillsBlock/SkillContaniner";
 import { SkillItems } from "./SkillItems";
+import { ExpertiseSectionProps } from "../components/skillsBlock/ExpertiseSection";
 
 type ContentType = {
   header: {
@@ -30,6 +31,7 @@ type ContentType = {
     items: ExpProps[];
   };
   skills: {
+    expertise: ExpertiseSectionProps[];
     items: SkillProps[];
   };
 };
@@ -188,6 +190,49 @@ export const Content: ContentType = {
     ],
   },
   skills: {
+    expertise: [
+      {
+        title: "Frontend Expertise",
+        description:
+          "I build performant and responsive user interfaces with a focus on modern frameworks and efficient tooling.",
+        items: [
+          "TypeScript, JavaScript",
+          "React, Angular",
+          "React Router, TanStack Router",
+          "Redux, Zustand",
+          "TanStack Query",
+          "Vite, Rustpack",
+          "Axios",
+        ],
+      },
+      {
+        title: "Backend Proficiency",
+        description:
+          "I develop scalable and maintainable APIs and services using modern backend frameworks.",
+        items: [
+          "Express.js, NestJS",
+          "Spring Boot, .NET (ASP.NET API)",
+          "FastAPI, Django",
+        ],
+      },
+      {
+        title: "Database Knowledge",
+        description:
+          "Skilled in working with both relational and NoSQL databases.",
+        items: ["PostgreSQL", "MongoDB"],
+      },
+      {
+        title: "Cross-Platform Development",
+        description:
+          "I create seamless experiences across mobile and desktop platforms.",
+        items: ["Flutter, React Native", "Tauri, Electron"],
+      },
+      {
+        title: "Native Mobile Development",
+        description: "Focused on delivering intuitive and native Android apps.",
+        items: ["Android with Kotlin & Jetpack Compose"],
+      },
+    ],
     items: SkillItems,
   },
 };
