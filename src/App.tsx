@@ -4,6 +4,7 @@ import Squares from "./components/animations/squares_bg/SquaresBackground";
 import { Exprience } from "./components/experience/Exprience";
 import { Header } from "./components/header/Header";
 import { IntroContainer } from "./components/intro/IntroContainer";
+import { ProjectBlock } from "./components/projects/ProjectBlock";
 import { ExpertiseBlock } from "./components/skillsBlock/ExpertiseBlock";
 import { SkillsBlock } from "./components/skillsBlock/SkillsBlock";
 
@@ -27,6 +28,7 @@ function App() {
         <Exprience />
         <ExpertiseBlock />
         <SkillsBlock />
+        <ProjectBlock />
       </div>
     </>
   );
