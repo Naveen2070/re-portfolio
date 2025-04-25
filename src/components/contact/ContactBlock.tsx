@@ -59,7 +59,7 @@ export const ContactBlock = () => {
             Contact Me
           </h2>
         </AnimatedContent>
-        <div style={{ height: "600px", width: "100%", position: "relative" }}>
+        <div className="flex justify-center-safe w-3xl">
           <ContactForm />
         </div>
       </div>
