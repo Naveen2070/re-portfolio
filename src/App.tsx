@@ -1,6 +1,7 @@
 import "./App.css";
 import { AboutMe } from "./components/about_me/AboutMe";
 import Squares from "./components/animations/squares_bg/SquaresBackground";
+import { ContactBlock } from "./components/contact/ContactBlock";
 import { Exprience } from "./components/experience/Exprience";
 import { Header } from "./components/header/Header";
 import { IntroContainer } from "./components/intro/IntroContainer";
@@ -29,6 +30,7 @@ function App() {
         <ExpertiseBlock />
         <SkillsBlock />
         <ProjectBlock />
+        <ContactBlock />
       </div>
     </>
   );

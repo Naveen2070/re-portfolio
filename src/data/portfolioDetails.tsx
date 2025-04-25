@@ -9,9 +9,9 @@ import PlaceHolderImg from "../assets/images/placeholder.jpg";
 import InspireLogo from "../assets/images/Inspire-textless.png";
 import EnterOtLogo from "../assets/images/enterot.jpeg";
 import FreeLancerLogo from "../assets/images/freelancer.png";
-import blogImage from "../../assets/images/blog.png";
-import foodyImage from "../../assets/images/foody.png";
-import resumeImage from "../../assets/images/resume.png";
+import blogImage from "../assets/images/blog.png";
+import foodyImage from "../assets/images/foody.png";
+import resumeImage from "../assets/images/resume.png";
 
 import { SkillProps } from "../components/skillsBlock/SkillContaniner";
 import { SkillItems } from "./SkillItems";
