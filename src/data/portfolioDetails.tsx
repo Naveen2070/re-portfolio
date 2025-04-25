@@ -9,6 +9,10 @@ import PlaceHolderImg from "../assets/images/placeholder.jpg";
 import InspireLogo from "../assets/images/Inspire-textless.png";
 import EnterOtLogo from "../assets/images/enterot.jpeg";
 import FreeLancerLogo from "../assets/images/freelancer.png";
+import blogImage from "../../assets/images/blog.png";
+import foodyImage from "../../assets/images/foody.png";
+import resumeImage from "../../assets/images/resume.png";
+
 import { SkillProps } from "../components/skillsBlock/SkillContaniner";
 import { SkillItems } from "./SkillItems";
 import { ExpertiseSectionProps } from "../components/skillsBlock/ExpertiseSection";
@@ -33,6 +37,9 @@ type ContentType = {
   skills: {
     expertise: ExpertiseSectionProps[];
     items: SkillProps[];
+  };
+  projects: {
+    items: any[];
   };
 };
 
@@ -234,5 +241,24 @@ export const Content: ContentType = {
       },
     ],
     items: SkillItems,
+  },
+  projects: {
+    items: [
+      {
+        image: blogImage,
+        text: "A tech blog",
+        link: "https://blog-proj-eta.vercel.app/",
+      },
+      {
+        image: foodyImage,
+        text: "A foodie community site",
+        link: "https://next-recipe-nine.vercel.app/",
+      },
+      {
+        image: resumeImage,
+        text: "Capstone project",
+        link: "https://naveen2070.github.io/resume/",
+      },
+    ],
   },
 };
