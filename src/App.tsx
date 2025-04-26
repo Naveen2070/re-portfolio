@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import { AboutMe } from "./components/about_me/AboutMe";
 import Squares from "./components/animations/squares_bg/SquaresBackground";
@@ -8,8 +9,22 @@ import { IntroContainer } from "./components/intro/IntroContainer";
 import { ProjectBlock } from "./components/projects/ProjectBlock";
 import { ExpertiseBlock } from "./components/skillsBlock/ExpertiseBlock";
 import { SkillsBlock } from "./components/skillsBlock/SkillsBlock";
+import { recordVisitor } from "./services/VisitorService";
+import { getAll, getVisitorId } from "./utils/clientJs/ClientCore";
 
 function App() {
+  useEffect(() => {
+    async function trackVisitor() {
+      const visitorId = getVisitorId();
+      const specs = getAll();
+      console.log("Visitor ID:", visitorId);
+      console.log("Visitor Specs:", specs);
+      await recordVisitor(visitorId.toString(), specs);
+    }
+
+    trackVisitor();
+  }, []);
+
   return (
     <>
       <Header />
