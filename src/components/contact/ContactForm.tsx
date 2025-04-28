@@ -2,10 +2,11 @@ import { JSX } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { Content } from "../../data/portfolioDetails";
 
 export default function ContactForm(): JSX.Element {
   const [state, handleSubmit] = useForm("xblolrkk");
-
+  const deatils = Content.contact;
   return (
     <div className="w-full max-w-4xl bg-[#171717] rounded-xl shadow-xl relative overflow-hidden">
       {/* Header */}
@@ -34,7 +35,8 @@ export default function ContactForm(): JSX.Element {
           </div>
           <div className="flex justify-center-safe gap-4">
             <a
-              href="https://github.com/Naveen2070"
+              title="github"
+              href={deatils.links.github}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -46,7 +48,8 @@ export default function ContactForm(): JSX.Element {
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/naveen-r-cud/"
+              title="linkedin"
+              href={deatils.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -59,7 +62,7 @@ export default function ContactForm(): JSX.Element {
             </a>
           </div>
           <div className="mt-auto text-xs text-gray-400 select-none">
-            CONTACT INFO : +91 63830 39672
+            CONTACT INFO : +91 {deatils.mobile}
           </div>
         </div>
 

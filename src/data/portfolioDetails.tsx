@@ -41,6 +41,13 @@ type ContentType = {
   projects: {
     items: any[];
   };
+  contact: {
+    links: {
+      github: string;
+      linkedin: string;
+    };
+    mobile: string;
+  };
 };
 
 const generateDescription = (content: React.ReactNode) => (
@@ -260,5 +267,12 @@ export const Content: ContentType = {
         link: "https://naveen2070.github.io/resume/",
       },
     ],
+  },
+  contact: {
+    links: {
+      github: "https://github.com/Naveen2070",
+      linkedin: "https://www.linkedin.com/in/naveen-r-cud/",
+    },
+    mobile: "63830 39672",
   },
 };
