@@ -55,10 +55,10 @@ export async function recentVisitorsCount() {
   const recentVisitors = visitorsSnapshot.docs.filter((doc) => {
     const recentVisit = doc.data().otherDetails.recentVisit;
     const now = Date.now();
-    const oneDay = 24 * 60 * 60 * 1000; // 1 day in milliseconds
+    const oneDay = 24 * 60 * 60 * 1000;
     return now - recentVisit < oneDay;
   });
-  return recentVisitors.length; // Count recent visitors
+  return recentVisitors.length;
 }
 
 // Function to find a specific visitor
@@ -71,4 +71,11 @@ export async function findVisitor(visitorId: string) {
     console.log("Visitor not found.");
     return null;
   }
+}
+
+// Function to get all visitors
+export async function getAll() {
+  const visitorsSnapshot = await getDocs(collection(db, "visitors"));
+  const visitors = visitorsSnapshot.docs.map((doc) => doc.data().otherDetails);
+  return visitors;
 }
