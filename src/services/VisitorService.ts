@@ -1,8 +1,35 @@
 import { doc, setDoc, getDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/store";
 
+// Types
+export interface VisitorOtherDetails {
+  visitorId: number;
+  isMobile: boolean;
+  language: string;
+  resolution: string;
+  browser: string;
+  browserVersion: string;
+  os: string;
+  osVersion: string;
+  timezone: string;
+  cpu: string;
+}
+
+export interface Visitor {
+  visitCount: number;
+  recentVisit: number;
+  visitInIST: string;
+  visitInUTC: string;
+  otherDetails: VisitorOtherDetails;
+}
+
+export type VisitorCollection = Visitor[];
+
 // Function to record visitor information
-export async function recordVisitor(visitorId: string, details: object) {
+export async function recordVisitor(
+  visitorId: string,
+  details: VisitorOtherDetails
+): Promise<void> {
   const visitorRef = doc(collection(db, "visitors"), visitorId);
 
   const visitorDoc = await getDoc(visitorRef);
@@ -16,7 +43,7 @@ export async function recordVisitor(visitorId: string, details: object) {
         otherDetails: {
           ...details,
         },
-        visitCount: currentData.otherDetails.visitCount + 1, // Increment visit count
+        visitCount: currentData.visitCount + 1, // Increment visit count
         recentVisit: Date.now(), // Update timestamp
         visitInIST: new Date().toLocaleString("en-US", {
           timeZone: "Asia/Kolkata",
@@ -44,16 +71,16 @@ export async function recordVisitor(visitorId: string, details: object) {
 }
 
 // Function to count total unique visitors
-export async function totalVisitorsCount() {
+export async function totalVisitorsCount(): Promise<number> {
   const visitorsSnapshot = await getDocs(collection(db, "visitors"));
   return visitorsSnapshot.size; // Count total unique visitors
 }
 
 // Function to count recent visitors
-export async function recentVisitorsCount() {
+export async function recentVisitorsCount(): Promise<number> {
   const visitorsSnapshot = await getDocs(collection(db, "visitors"));
   const recentVisitors = visitorsSnapshot.docs.filter((doc) => {
-    const recentVisit = doc.data().otherDetails.recentVisit;
+    const recentVisit = doc.data().recentVisit;
     const now = Date.now();
     const oneDay = 24 * 60 * 60 * 1000;
     return now - recentVisit < oneDay;
@@ -62,7 +89,7 @@ export async function recentVisitorsCount() {
 }
 
 // Function to find a specific visitor
-export async function findVisitor(visitorId: string) {
+export async function findVisitor(visitorId: string): Promise<Visitor | null> {
   const visitorRef = doc(collection(db, "visitors"), visitorId);
   const visitorDoc = await getDoc(visitorRef);
   if (visitorDoc.exists()) {
@@ -74,8 +101,8 @@ export async function findVisitor(visitorId: string) {
 }
 
 // Function to get all visitors
-export async function getAll() {
+export async function getAll(): Promise<VisitorCollection> {
   const visitorsSnapshot = await getDocs(collection(db, "visitors"));
-  const visitors = visitorsSnapshot.docs.map((doc) => doc.data().otherDetails);
-  return visitors;
+  const visitors = visitorsSnapshot.docs.map((doc) => doc.data());
+  return visitors as VisitorCollection;
 }

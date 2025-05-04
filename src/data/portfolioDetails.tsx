@@ -39,7 +39,7 @@ type ContentType = {
     items: SkillProps[];
   };
   projects: {
-    items: any[];
+    items: unknown[];
   };
   contact: {
     links: {

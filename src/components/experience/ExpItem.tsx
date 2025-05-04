@@ -3,6 +3,7 @@ import AnimatedContent from "../animations/contexts/AnimatedContext";
 import PlaceHolderImg from "../../assets/images/placeholder.jpg";
 
 export type ExpProps = {
+  id?: string | number;
   ImageUri?: string;
   Role?: string;
   Company?: string;
@@ -15,6 +16,7 @@ export type ExpProps = {
 
 export const ExpItem = (props: ExpProps): React.JSX.Element => {
   const {
+    id,
     ImageUri = PlaceHolderImg,
     Role,
     Company,
@@ -27,6 +29,7 @@ export const ExpItem = (props: ExpProps): React.JSX.Element => {
 
   return (
     <AnimatedContent
+      key={id}
       distance={100}
       direction={Direction}
       reverse={Reverse}
@@ -39,11 +42,11 @@ export const ExpItem = (props: ExpProps): React.JSX.Element => {
       height="fit-content"
     >
       <div
+        key={id}
         className={`transform transition-transform duration-500 ease-[cubic-bezier(0.4, 0, 0.2, 1)] 
     hover:scale-[1.015] hover:-translate-y-1 
-    flex flex-col sm:flex-row md:flex-row ${
-      ReverseContent ? "flex-row-reverse" : ""
-    } 
+    flex flex-col sm:flex-row md:flex-row ${ReverseContent ? "flex-row-reverse" : ""
+          } 
     items-stretch w-full h-fit p-4 bg-[#171717] rounded-3xl 
     border border-neutral-900 hover:border-neutral-400 mb-4`}
       >

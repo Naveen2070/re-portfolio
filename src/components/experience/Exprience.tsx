@@ -42,9 +42,8 @@ export const Exprience = () => {
       <section
         id="about"
         ref={sectionRef}
-        className={`relative min-h-[100dvh] h-fit flex justify-center items-center p-5 bg-transparent transition-opacity duration-500 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
+        className={`relative min-h-[100dvh] h-fit flex justify-center items-center p-5 bg-transparent transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"
+          }`}
       >
         <div className="relative z-10 flex flex-col justify-center items-center w-full h-[100%]">
           <AnimatedContent
@@ -65,6 +64,8 @@ export const Exprience = () => {
           </AnimatedContent>
           {ExpItems.map((item, index) => (
             <ExpItem
+              key={index}
+              id={index + new Date().toUTCString()}
               ImageUri={item.ImageUri}
               Company={item.Company}
               Role={item.Role}

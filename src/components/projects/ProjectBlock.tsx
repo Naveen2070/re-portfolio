@@ -41,9 +41,8 @@ export const ProjectBlock = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className={`h-[100dvh] flex justify-center items-center p-5 bg-transparent transition-opacity duration-500 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className={`h-[100dvh] flex justify-center items-center p-5 bg-transparent transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"
+        }`}
     >
       <div className="flex flex-col justify-center items-center w-full h-[100%]">
         <AnimatedContent
@@ -64,7 +63,7 @@ export const ProjectBlock = () => {
         </AnimatedContent>
         <div style={{ height: "600px", width: "100%", position: "relative" }}>
           <CircularGallery
-            items={dataportfolio}
+            items={dataportfolio as { image: string; text: string }[]}
             bend={1}
             textColor="#ffffff"
             borderRadius={0.05}
