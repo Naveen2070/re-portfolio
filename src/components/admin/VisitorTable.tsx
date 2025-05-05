@@ -3,7 +3,7 @@ import { VisitorCollection } from "../../services/VisitorService";
 
 export default function VisitorTable({ visitorInfo }: { visitorInfo: VisitorCollection }) {
   return (
-    <div className="bg-black text-white p-4 rounded shadow">
+    <div className="h-1/2 overflow-y-auto overflow-x-hidden bg-black text-white p-4 rounded shadow">
       <h2 className="text-xl font-semibold mb-4">Visitor Details</h2>
       <table className="w-full table-auto border">
         <thead>

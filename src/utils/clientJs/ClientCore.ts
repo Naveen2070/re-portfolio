@@ -31,7 +31,8 @@ export function getLanguage() {
 }
 
 export function getTimezone() {
-  return client.getTimeZone();
+  const timeZoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return timeZoneName;
 }
 
 export function getResolution() {
