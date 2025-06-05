@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./StarComponent.css";
 
 type StarButtonProps<T extends React.ElementType> =

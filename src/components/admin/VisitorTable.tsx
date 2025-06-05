@@ -1,4 +1,3 @@
-import React from "react";
 import { VisitorCollection } from "../../services/VisitorService";
 
 export default function VisitorTable({ visitorInfo }: { visitorInfo: VisitorCollection }) {

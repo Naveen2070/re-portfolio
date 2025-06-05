@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export interface GooeyNavItem {
   label: string;
@@ -350,9 +350,8 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             {items.map((item, index) => (
               <li
                 key={index}
-                className={`py-[0.6em] px-[0.5em] text-xs sm:text-xs md:text-base rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
-                  activeIndex === index ? "active" : ""
-                }`}
+                className={`py-[0.6em] px-[0.5em] text-xs sm:text-xs md:text-base rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${activeIndex === index ? "active" : ""
+                  }`}
                 onClick={(e) => handleClick(e, index)}
               >
                 <a

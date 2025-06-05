@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import VisitorChart from "./VisitorChart";
 import VisitorTable from "./VisitorTable";
 import { getAll, recentVisitorsCount, totalVisitorsCount, VisitorCollection } from "../../services/VisitorService";
