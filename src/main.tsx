@@ -7,7 +7,7 @@ import Dashboard from "./components/admin/Dashboard.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/re-portfolio/">
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/admin" element={<Dashboard />} />
